@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "address": "Mankweng, Unit G",
+    "description": "Welcome to your new sanctuary in the heart of Ebony Park, Midrand! This charming bedroom house is poised to offer you a blend of comfort, convenience, and stylish living. With modern amenities and a welcoming atmosphere, this home is not just a place to live; it’s a place to thrive.",
+    "price": 850,
+    "noOfBedroom": 1,
+    "noOfBathroom": 1,
+    "noOfParking": 0,
+    "previewImage": "https://picsum.photos/200",
+    "images": [
+      {
+        "url": "https://picsum.photos/200"
+      }
+    ],
+  "contactPerson": "Dimakatso Bopape",
+  "contactPersonCellNumber": "073 091 4101"
+  },{
+    "id": 2,
+    "address": "Mankweng, Unit G",
+    "description": "Welcome to your new sanctuary in the heart of Ebony Park, Midrand! This charming bedroom house is poised to offer you a blend of comfort, convenience, and stylish living. With modern amenities and a welcoming atmosphere, this home is not just a place to live; it’s a place to thrive.",
+    "price": 850,
+    "noOfBedroom": 1,
+    "noOfBathroom": 1,
+    "noOfParking": 0,
+    "previewImage": "https://picsum.photos/200",
+    "images": [
+      {
+        "url": "https://picsum.photos/200"
+      }
+    ],
+  "contactPerson": "Dimakatso Bopape",
+  "contactPersonCellNumber": "073 091 4101"
+  },{
+    "id": 3,
+    "address": "Mankweng, Unit G",
+    "description": "Welcome to your new sanctuary in the heart of Ebony Park, Midrand! This charming bedroom house is poised to offer you a blend of comfort, convenience, and stylish living. With modern amenities and a welcoming atmosphere, this home is not just a place to live; it’s a place to thrive.",
+    "price": 850,
+    "noOfBedroom": 1,
+    "noOfBathroom": 1,
+    "noOfParking": 0,
+    "previewImage": "https://picsum.photos/200",
+    "images": [
+      {
+        "url": "https://picsum.photos/200"
+      }
+    ],
+  "contactPerson": "Dimakatso Bopape",
+  "contactPersonCellNumber": "073 091 4101"
+  },{
+    "id": 4,
+    "address": "Mankweng, Unit G",
+    "description": "Welcome to your new sanctuary in the heart of Ebony Park, Midrand! This charming bedroom house is poised to offer you a blend of comfort, convenience, and stylish living. With modern amenities and a welcoming atmosphere, this home is not just a place to live; it’s a place to thrive.",
+    "price": 850,
+    "noOfBedroom": 1,
+    "noOfBathroom": 1,
+    "noOfParking": 0,
+    "previewImage": "https://picsum.photos/200",
+    "images": [
+      {
+        "url": "https://picsum.photos/200"
+      }
+    ],
+  "contactPerson": "Dimakatso Bopape",
+  "contactPersonCellNumber": "073 091 4101"
+  }
+]

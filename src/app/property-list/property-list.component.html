@@ -1,0 +1,5 @@
+@for (property of properties(); track property.id) {
+  <a class="flex flex-col" [routerLink]="['/property', property.id]">
+    <app-property-card  class="mb-4" [property]="property"></app-property-card>
+  </a>
+}

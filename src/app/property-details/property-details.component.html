@@ -1,5 +1,33 @@
 
 <div class="max-w-lg mx-auto bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 mt-5 p-5">
-  <p>property-details works!</p>
+    <div class="flex items-center justify-between h-70 bg-cover bg-no-repeat" [ngStyle]="{'background-image': 'url(' + images[currentImageIndex] + ')'}">
+        <mat-icon (click)="prev()" class="cursor-pointer" aria-hidden="true" fontIcon="chevron_left"></mat-icon>
+        <!--<img class="rounded-lg h-65 grow flex-grow-1" [src]="images[currentImageIndex]" alt="loading..." loading="lazy"/>-->
+        <mat-icon (click)="next()" class="cursor-pointer" aria-hidden="true" fontIcon="chevron_right"></mat-icon>
+    </div>
+    <div class="flex items-center mt-2.5 gap-1 overflow-auto">
+        @for (image of images; track $index) {
+            <img (click)="open($index)"
+                 [ngClass]="{'h-25 w-25': currentImageIndex === $index}"
+                 class="rounded-lg h-20 w-20 grow flex-grow-1 cursor-pointer"
+                 [src]="image" alt="loading..."
+                 loading="lazy"
+            />
+        }
+    </div>
+</div>
+
+<div class="max-w-lg mx-auto bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 mt-5 p-5">
+    <div class="flex gap-3 items-center">
+        <div class="text-2xl tracking-tight font-bold text-blue-500">
+            R {{property?.price}}
+        </div>
+        <h5 class="text-2xl  text-gray-900 dark:text-white flex-grow-1">{{property?.address}}</h5>
+        <div class="flex items-center gap-2">
+            <mat-icon aria-hidden="true" fontIcon="phone"></mat-icon>
+            <div class="text-gray-900 dark:text-white">{{property?.contactPersonCellNumber}}</div>
+        </div>
+
+    </div>
 </div>
 

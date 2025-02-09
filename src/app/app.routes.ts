@@ -5,4 +5,5 @@ import {PropertyDetailsComponent} from './property-details/property-details.comp
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'property/:id', component: PropertyDetailsComponent },
+  {path: '**', redirectTo: '',},
 ];

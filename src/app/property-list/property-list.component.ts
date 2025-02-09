@@ -14,9 +14,7 @@ import {RouterLink} from '@angular/router';
   styleUrl: './property-list.component.scss'
 })
 export class PropertyListComponent {
-
   private readonly propertyService = inject(PropertyService);
-
   public properties  = computed(() => this.propertyService.getPropertiesResource.value() || []);
 
 }

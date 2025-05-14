@@ -19,15 +19,83 @@
 
 <div class="max-w-lg mx-auto bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 mt-5 p-5">
     <div class="flex gap-3 items-center">
-        <div class="text-2xl tracking-tight font-bold text-blue-500">
-            R {{property?.price}}
+        <div *ngIf="properties[currentImageIndex]?.id === 1" class="text-2xl tracking-tight font-bold text-blue-500">
+            R {{properties[currentImageIndex]?.price}}
         </div>
-        <h5 class="text-2xl  text-gray-900 dark:text-white flex-grow-1">{{property?.address}}</h5>
+        <div *ngIf="properties[currentImageIndex]?.id === 2" class="text-2xl tracking-tight font-bold text-blue-500">
+            R {{properties[currentImageIndex]?.price}}
+        </div>
+        <div *ngIf="properties[currentImageIndex]?.id === 3" class="text-2xl tracking-tight font-bold text-blue-500">
+            R {{properties[currentImageIndex]?.price}}
+        </div>
+        <div *ngIf="properties[currentImageIndex]?.id === 4" class="text-2xl tracking-tight font-bold text-blue-500">
+            R {{properties[currentImageIndex]?.price}}
+        </div>
+        <h5 *ngIf="properties[currentImageIndex]?.id === 1" class="text-2xl  text-gray-900 dark:text-white flex-grow-1" >{{properties[currentImageIndex]?.address}}</h5>
+        <h5 *ngIf="properties[currentImageIndex]?.id === 2" class="text-2xl  text-gray-900 dark:text-white flex-grow-1" >{{properties[currentImageIndex]?.address}}</h5>
+        <h5 *ngIf="properties[currentImageIndex]?.id === 3" class="text-2xl  text-gray-900 dark:text-white flex-grow-1" >{{properties[currentImageIndex]?.address}}</h5>
+        <h5 *ngIf="properties[currentImageIndex]?.id === 4" class="text-2xl  text-gray-900 dark:text-white flex-grow-1" >{{properties[currentImageIndex]?.address}}</h5>
         <div class="flex items-center gap-2">
             <mat-icon aria-hidden="true" fontIcon="phone"></mat-icon>
-            <div class="text-gray-900 dark:text-white">{{property?.contactPersonCellNumber}}</div>
+            <div *ngIf="properties[currentImageIndex]?.id === 1" class="text-gray-900 dark:text-white">{{properties[currentImageIndex]?.contactPersonCellNumber}}</div>
+            <div *ngIf="properties[currentImageIndex]?.id === 2" class="text-gray-900 dark:text-white">{{properties[currentImageIndex]?.contactPersonCellNumber}}</div>
+            <div *ngIf="properties[currentImageIndex]?.id === 3" class="text-gray-900 dark:text-white">{{properties[currentImageIndex]?.contactPersonCellNumber}}</div>
+            <div *ngIf="properties[currentImageIndex]?.id === 4" class="text-gray-900 dark:text-white">{{properties[currentImageIndex]?.contactPersonCellNumber}}</div>
         </div>
 
     </div>
+</div>
+
+<!-- PROPERTY DETAILS -->
+<div class="max-w-xl mx-auto bg-white shadow-md rounded-lg p-6 mt-5">
+  <h2 class="text-1xl font-bold text-blue-500 mb-4 text-center">Welcome to Your New Home!</h2>
+
+  <p class="text-gray-700 mb-4">
+    {{ properties[currentImageIndex]?.description }}
+  </p>
+
+  <ul class="space-y-2 text-gray-800">
+    <li class="flex items-center gap-2">
+      <mat-icon fontIcon="location_on" class="text-blue-500"></mat-icon>
+      <span class="w-28 font-semibold">Address</span>
+      <span class="w-1">:</span>
+      <span>{{ properties[currentImageIndex]?.address }}</span>
+    </li>
+    <li class="flex items-center gap-2">
+      <mat-icon fontIcon="bed" class="text-blue-500"></mat-icon>
+      <span class="w-28 font-semibold">Bedroom</span>
+      <span class="w-1">:</span>
+      <span>{{ properties[currentImageIndex]?.noOfBedroom }} spacious room</span>
+    </li>
+    <li class="flex items-center gap-2">
+      <mat-icon fontIcon="shower" class="text-blue-500"></mat-icon>
+      <span class="w-28 font-semibold">Bathroom</span>
+      <span class="w-1">:</span>
+      <span>{{ properties[currentImageIndex]?.noOfBathroom }} clean bathroom</span>
+    </li>
+    <li class="flex items-center gap-2">
+      <mat-icon fontIcon="wifi" class="text-blue-500"></mat-icon>
+      <span class="w-28 font-semibold">Wi-Fi</span>
+      <span class="w-1">:</span>
+      <span>Available</span>
+    </li>
+    <li class="flex items-center gap-2">
+      <mat-icon fontIcon="local_parking" class="text-blue-500"></mat-icon>
+      <span class="w-28 font-semibold">Parking</span>
+      <span class="w-1">:</span>
+      <span *ngIf="properties[currentImageIndex]?.noOfParking > 0">Available</span>
+      <span *ngIf="properties[currentImageIndex]?.noOfParking === 0">No dedicated parking</span>
+    </li>
+    <li class="flex items-center gap-2">
+      <mat-icon fontIcon="attach_money" class="text-blue-500"></mat-icon>
+      <span class="w-28 font-semibold">Price</span>
+      <span class="w-1">:</span>
+      <span>R {{ properties[currentImageIndex]?.price }} per month</span>
+    </li>
+  </ul>
+
+  <p class="text-gray-500 mt-4 italic">
+    "This home is not just a place to live; it’s a place to thrive."
+  </p>
 </div>
 

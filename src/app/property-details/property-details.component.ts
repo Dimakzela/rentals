@@ -4,13 +4,17 @@ import {PropertyService} from "../service/property-service";
 import {Property} from "../model/property";
 import {ActivatedRoute} from "@angular/router";
 import {NgClass, NgStyle} from "@angular/common";
+import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-property-details',
+  standalone: true,
   imports: [
     MatIcon,
     NgClass,
-    NgStyle
+    NgStyle,
+    CommonModule
   ],
   providers: [PropertyService],
   templateUrl: './property-details.component.html',
@@ -26,6 +30,10 @@ export class PropertyDetailsComponent implements OnInit {
   public images: string[] = [];
   public currentImageIndex: number = 0;
 
+  private http = inject(HttpClient);
+  public properties: any[] = [];
+  //public currentIndex = 0;
+
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = params['id']; // Access the 'id' parameter from the URL
@@ -35,6 +43,10 @@ export class PropertyDetailsComponent implements OnInit {
         console.log(next)
       });
 
+    });
+
+    this.http.get<any[]>('properties.json').subscribe(data => {
+      this.properties = data; //Access properties.json from the public folder
     });
   }
 

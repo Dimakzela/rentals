@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "address": "Mankweng, Unit G",
+    "address": "Mankweng, Unit E",
     "description": "Welcome to your new sanctuary in the heart of Ebony Park, Midrand! This charming bedroom house is poised to offer you a blend of comfort, convenience, and stylish living. With modern amenities and a welcoming atmosphere, this home is not just a place to live; it’s a place to thrive.",
-    "price": 850,
+    "price": 851,
     "noOfBedroom": 1,
     "noOfBathroom": 1,
     "noOfParking": 0,
@@ -17,10 +17,10 @@
   "contactPersonCellNumber": "073 091 4101"
   },{
     "id": 2,
-    "address": "Mankweng, Unit G",
+    "address": "Mankweng, Unit F",
     "description": "Welcome to your new sanctuary in the heart of Ebony Park, Midrand! This charming bedroom house is poised to offer you a blend of comfort, convenience, and stylish living. With modern amenities and a welcoming atmosphere, this home is not just a place to live; it’s a place to thrive.",
-    "price": 850,
-    "noOfBedroom": 1,
+    "price": 852,
+    "noOfBedroom": 2,
     "noOfBathroom": 1,
     "noOfParking": 0,
     "previewImage": "https://picsum.photos/id/237/200",
@@ -33,10 +33,10 @@
   "contactPersonCellNumber": "073 091 4101"
   },{
     "id": 3,
-    "address": "Mankweng, Unit G",
+    "address": "Mankweng, Unit A",
     "description": "Welcome to your new sanctuary in the heart of Ebony Park, Midrand! This charming bedroom house is poised to offer you a blend of comfort, convenience, and stylish living. With modern amenities and a welcoming atmosphere, this home is not just a place to live; it’s a place to thrive.",
-    "price": 850,
-    "noOfBedroom": 1,
+    "price": 853,
+    "noOfBedroom": 3,
     "noOfBathroom": 1,
     "noOfParking": 0,
     "previewImage": "https://picsum.photos/id/231/200",
@@ -51,10 +51,10 @@
     "id": 4,
     "address": "Mankweng, Unit G",
     "description": "Welcome to your new sanctuary in the heart of Ebony Park, Midrand! This charming bedroom house is poised to offer you a blend of comfort, convenience, and stylish living. With modern amenities and a welcoming atmosphere, this home is not just a place to live; it’s a place to thrive.",
-    "price": 850,
-    "noOfBedroom": 1,
+    "price": 854,
+    "noOfBedroom": 3,
     "noOfBathroom": 1,
-    "noOfParking": 0,
+    "noOfParking": 4,
     "previewImage": "https://picsum.photos/id/257/200",
     "images": [
       {

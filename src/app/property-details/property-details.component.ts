@@ -10,7 +10,6 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-property-details',
   standalone: true,
-  standalone: true,
   imports: [
     MatIcon,
     NgClass,

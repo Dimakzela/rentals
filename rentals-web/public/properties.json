@@ -2,7 +2,6 @@
   {
     "id": 1,
     "address": "Mankweng, Unit E",
-    "address": "Mankweng, Unit E",
     "description": "Welcome to your new sanctuary in the heart of Ebony Park, Midrand! This charming bedroom house is poised to offer you a blend of comfort, convenience, and stylish living. With modern amenities and a welcoming atmosphere, this home is not just a place to live; it’s a place to thrive.",
     "price": 851,
     "noOfBedroom": 2,
@@ -19,10 +18,7 @@
   },{
     "id": 2,
     "address": "Mankweng, Unit F",
-    "address": "Mankweng, Unit F",
     "description": "Welcome to your new sanctuary in the heart of Ebony Park, Midrand! This charming bedroom house is poised to offer you a blend of comfort, convenience, and stylish living. With modern amenities and a welcoming atmosphere, this home is not just a place to live; it’s a place to thrive.",
-    "price": 852,
-    "noOfBedroom": 2,
     "price": 852,
     "noOfBedroom": 2,
     "noOfBathroom": 1,
@@ -37,7 +33,6 @@
   "contactPersonCellNumber": "073 091 4101"
   },{
     "id": 3,
-    "address": "Mankweng, Unit A",
     "address": "Mankweng, Unit A",
     "description": "Welcome to your new sanctuary in the heart of Ebony Park, Midrand! This charming bedroom house is poised to offer you a blend of comfort, convenience, and stylish living. With modern amenities and a welcoming atmosphere, this home is not just a place to live; it’s a place to thrive.",
     "price": 853,

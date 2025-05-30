@@ -1,11 +1,10 @@
 #Defining the base image
-FROM node:24-alpine3.20  
+FROM node:24-alpine3.20
+
+WORKDIR /frontend
 
 #copying the app to a docker image under theRentals folder
-COPY . /theRentals/
-
-#Choosing the working directory
-WORKDIR /theRentals
+COPY . .
 
 #Install the node package manager dependencies
 

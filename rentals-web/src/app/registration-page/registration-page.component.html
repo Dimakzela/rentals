@@ -1,0 +1,25 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <h2 class="title">New Account</h2>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email Address</mat-label>
+      <input matInput [(ngModel)]="username" placeholder="Enter your email addredd" required/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" [(ngModel)]="password" placeholder="Enter your password" required/>
+    </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput type="password" [(ngModel)]="confirmPassword" placeholder="Enter your password" required/>
+    </mat-form-field>
+
+      <button [disabled]="!username || !password || !confirmPassword || confirmPassword != password"
+              mat-raised-button
+              color="primary" (click)="onRegister()" class="full-width">
+      Create account
+    </button>
+  </mat-card>
+</div>

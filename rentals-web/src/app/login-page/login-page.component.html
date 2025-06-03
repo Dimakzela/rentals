@@ -1,21 +1,24 @@
-<div class="login-container">
+<form [formGroup]="loginForm" class="login-container" (ngSubmit)="onLogin()">
   <mat-card class="login-card">
     <h2 class="title">Login</h2>
+      @if (errorMessage) {
+          <h4 class="login-error">{{errorMessage}}</h4>
+      }
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Email Address</mat-label>
-      <input matInput [(ngModel)]="username" placeholder="Enter your eamil" required/>
+      <input matInput formControlName="email" placeholder="Enter your eamil" required/>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Password</mat-label>
-      <input matInput type="password" [(ngModel)]="password" placeholder="Enter your password" required/>
+      <input matInput type="password" formControlName="password" placeholder="Enter your password" required/>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" (click)="onLogin()" class="full-width">
+    <button [disabled]="!loginForm.valid" type="submit" mat-raised-button color="primary" class="full-width">
       Login
     </button>
       <button mat-raised-button color="primary" routerLink="/register" class="full-width">
       Create account
     </button>
   </mat-card>
-</div>
+</form>

@@ -21,7 +21,7 @@ import {Auth} from "@angular/fire/auth";
 export class LoginPageComponent {
     private router = inject(Router);
     private auth = inject(Auth);
-    public errorMessage = null;
+    public errorMessage: string | null = null;
 
     loginForm = new FormGroup({
         email: new FormControl(''),
@@ -38,10 +38,31 @@ export class LoginPageComponent {
                 this.router.navigate(['/admin']).then(r => {
                 });
             })
-            .catch((error: { code: any; message: any; }) => {
+            .catch((error) => {
                 const errorCode = error.code;
                 console.log(errorCode)
-                this.errorMessage = error.message;
+                //this.errorMessage = error.message;
+
+                //Custom error message mapping
+                switch (errorCode) {
+                    case 'auth/network-request-failed':
+                        this.errorMessage = 'Network error. Please check your internet connection.';
+                        break;
+                    case 'auth/wrong-password':
+                        this.errorMessage = 'Incorrect password. Please try again.';
+                        break;
+                    case 'auth/user-not-found':
+                        this.errorMessage = 'No user found with this email.';
+                        break;
+                    case 'auth/invalid-email':
+                        this.errorMessage = 'The email address is not valid.';
+                        break;
+                    default:
+                        this.errorMessage = 'Login failed. Please try again later.';
+                }
+
+                 console.error('Login error:', errorCode, error.message);
+                
             });
 
     }

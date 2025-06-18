@@ -62,7 +62,7 @@ export class LoginPageComponent {
                 }
 
                  console.error('Login error:', errorCode, error.message);
-                
+  
             });
 
     }

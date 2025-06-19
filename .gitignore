@@ -1,0 +1,6 @@
+/cache/
+/.idea/
+/firebase/data/export/
+/firebase/ui-debug.log
+/firebase/firestore-debug.log
+/firebase/database-debug.log

@@ -5,11 +5,13 @@ import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
-import {createUserWithEmailAndPassword} from "firebase/auth";
 import {Router} from "@angular/router";
-import {Auth} from "@angular/fire/auth";
+import {updateProfile} from "@angular/fire/auth";
 
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import {User} from "@firebase/auth";
+import {AuthService} from "../service/auth-service";
+import {AppStore} from "../store/app.store";
 
 @Component({
     selector: 'app-registration-page',
@@ -21,11 +23,13 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
 })
 export class RegistrationPageComponent {
     private router = inject(Router);
-    private auth = inject(Auth);
+    private authService = inject(AuthService);
+    private appStore = inject(AppStore);
     public errorMessage: string | null = null;
     isLoading = false;
 
 
+    name: string = '';
     username: string = '';
     password: string = '';
     confirmPassword: string = '';
@@ -37,13 +41,16 @@ export class RegistrationPageComponent {
 
 
     onRegister() {
-        createUserWithEmailAndPassword(this.auth, this.username, this.password)
-            .then((userCredential: { user: any; }) => {
+        this.authService
+            .register(this.username, this.password)
+            .then((userCredential: { user: User; }) => {
                 // Signed up
                 const user = userCredential.user;
                 console.log(user);
-                this.router.navigate(['/admin']).then(r => {
-                });
+                updateProfile(user, {displayName: this.name})
+                    .then(r => this.router.navigate(['/admin']).then(r => {
+                        this.appStore.setState({userId: user.uid, displayName: user.displayName, isLogged: true})
+                }));
             })
             .catch((error) => {
                 const errorCode = error.code;

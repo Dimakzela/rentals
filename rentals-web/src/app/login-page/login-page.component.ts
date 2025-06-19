@@ -6,9 +6,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {RouterLink} from "@angular/router";
-import {signInWithEmailAndPassword} from "firebase/auth";
 import {Router} from "@angular/router";
-import {Auth} from "@angular/fire/auth";
+import {AuthService} from "../service/auth-service";
+import {AppStore} from "../store/app.store";
+import {User} from "@firebase/auth";
 
 @Component({
     selector: 'app-login-page',
@@ -20,7 +21,8 @@ import {Auth} from "@angular/fire/auth";
 })
 export class LoginPageComponent {
     private router = inject(Router);
-    private auth = inject(Auth);
+    private authService = inject(AuthService);
+    private appStore = inject(AppStore);
     public errorMessage: string | null = null;
 
     loginForm = new FormGroup({
@@ -31,9 +33,10 @@ export class LoginPageComponent {
     onLogin() {
         const email = this.loginForm.controls['email']?.value?.toString() || '';
         const password = this.loginForm.controls['password']?.value?.toString() || '';
-        signInWithEmailAndPassword(this.auth, email, password)
-            .then((userCredential: { user: any; }) => {
+        this.authService.login(email, password)
+            .then((userCredential: { user: User; }) => {
                 const user = userCredential.user;
+                this.appStore.setState({userId: user.uid, displayName: user.displayName, isLogged: true})
                 console.log(user);
                 this.router.navigate(['/admin']).then(r => {
                 });

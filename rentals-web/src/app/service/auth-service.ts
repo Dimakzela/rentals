@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {Auth} from "@angular/fire/auth";
+import {Auth, createUserWithEmailAndPassword} from "@angular/fire/auth";
 import {signInWithEmailAndPassword} from "firebase/auth";
 
 @Injectable({providedIn: "root"})
@@ -11,6 +11,6 @@ export class AuthService {
   }
 
   public register(email: string, password: string): Promise<any> {
-    return signInWithEmailAndPassword(this.auth, email, password);
+    return createUserWithEmailAndPassword(this.auth, email, password);
   }
 }

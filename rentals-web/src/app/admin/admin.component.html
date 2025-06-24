@@ -1,6 +1,72 @@
-<p>Welcome {{name()}}!</p>
-<button
-        mat-raised-button
-        color="primary" routerLink="/login" class="full-width">
-    logout
-</button>
+<mat-card>
+  <h2>Add Property Listing</h2>
+  <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="address" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" required></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" formControlName="price" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>No. of Bedrooms</mat-label>
+      <input matInput type="number" formControlName="noOfBedroom" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>No. of Bathrooms</mat-label>
+      <input matInput type="number" formControlName="noOfBathroom" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>No. of Parking Spaces</mat-label>
+      <input matInput type="number" formControlName="noOfParking" required />
+    </mat-form-field>
+
+   <div class="custom-upload w-full">
+  <label class="upload-label">Upload Property Images</label>
+  
+  <button mat-raised-button color="accent" (click)="fileInput.click()">
+    Choose Files
+  </button>
+  <input
+    type="file"
+    #fileInput
+    (change)="onFileSelected($event)"
+    multiple
+    hidden
+  />
+</div>
+
+
+   <!--image preview -->
+   <div class="preview-container" *ngIf="imagePreviews.length > 0">
+     <label class="preview-label">Preview:</label>
+     <div class="image-preview" *ngFor="let img of imagePreviews">
+       <img [src]="img" alt="Property Image" />
+     </div>
+   </div>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Contact Person</mat-label>
+      <input matInput formControlName="contactPerson" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Contact Cell Number</mat-label>
+      <input matInput formControlName="contactPersonCellNumber" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="propertyForm.invalid">
+      Submit Property
+    </button>
+  </form>
+</mat-card>

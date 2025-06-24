@@ -1,0 +1,99 @@
+mat-card {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: #3f51b5; /* Angular Material Indigo */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+button[type="submit"] {
+  align-self: center;
+  width: 50%;
+  padding: 12px 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+:host {
+  display: block;
+  padding-bottom: 100px; /* creates space for the fixed footer */
+}
+
+.preview-label {
+  display: block;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.upload-label {
+   color: rgba(0, 0, 0, 0.6); 
+}
+
+.image-preview {
+  margin-bottom: 8px;
+}
+
+.preview-container {
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.image-preview img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.custom-upload {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.custom-upload .mat-label {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6); // Matches Material label color
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.custom-upload .mat-input {
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.custom-upload .mat-input:hover,
+.custom-upload .mat-input:focus {
+  border-color: #3f51b5; // Angular Material Indigo
+  outline: none;
+}
+
+

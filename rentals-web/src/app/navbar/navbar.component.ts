@@ -4,6 +4,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIcon} from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
+import { AuthService } from '../service/auth-service';
+import { NgIf, AsyncPipe  } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -11,16 +13,24 @@ import { Router } from '@angular/router';
     MatToolbarModule,
     MatButtonModule,
     MatIcon,
-    RouterLink
+    RouterLink,
+    NgIf,
+    AsyncPipe 
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  constructor(private router: Router) {}
+  constructor(public authService: AuthService, private router: Router) {}
 
   goToLogin() {
     this.router.navigate(['/login-page']);
     console.log("button clicked");
+  }
+
+  logout() {
+    this.authService.logout().then(() => {
+      this.router.navigate(['/login']);
+    });
   }
 }

@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-admin',
@@ -18,7 +19,7 @@ import { CommonModule } from '@angular/common';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
@@ -30,8 +31,11 @@ export class AdminComponent implements OnInit {
   public name = this.appStore.select('displayName');
   public isLoggedIn = this.appStore.select('isLogged');
 
+  @ViewChild('fileInput') fileInput!: ElementRef;
+
   selectedFiles: File[] = [];
   imagePreviews: string[] = [];
+  filesSelected = false;
 
   propertyForm: FormGroup;
 
@@ -43,12 +47,12 @@ export class AdminComponent implements OnInit {
       noOfBedroom: ['', [Validators.required, Validators.min(1)]],
       noOfBathroom: ['', [Validators.required, Validators.min(1)]],
       noOfParking: ['', [Validators.required, Validators.min(0)]],
-      previewImage: ['', Validators.required],
       contactPerson: ['', Validators.required],
       contactPersonCellNumber: ['', [
         Validators.required,
         Validators.pattern(/^\d{10}$/)
-      ]]
+      ]],
+      images: [null, Validators.required]
     });
   }
 
@@ -74,6 +78,16 @@ export class AdminComponent implements OnInit {
         };
         reader.readAsDataURL(file);
       }
+      this.filesSelected = true;
+
+      this.propertyForm.patchValue({ images: this.selectedFiles });
+      this.propertyForm.get('images')?.updateValueAndValidity();
+    }
+    else {
+      this.filesSelected = false;
+
+      this.propertyForm.patchValue({ images: null });
+      this.propertyForm.get('images')?.updateValueAndValidity();
     }
   }
 
@@ -82,6 +96,11 @@ export class AdminComponent implements OnInit {
       console.log('Property submitted:', this.propertyForm.value);
       console.log('Selected images:', this.selectedFiles);
       alert('Property submitted successfully!');
+
+
       this.propertyForm.reset();
+      this.selectedFiles = [];
+      this.imagePreviews = [];
+      this.fileInput.nativeElement.value = ''; // Clear file input
     }
   }}

@@ -51,12 +51,22 @@ button[type="submit"] {
 
 .image-preview {
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .preview-container {
   margin-bottom: 16px;
   width: 100%;
   max-width: 500px;
+  margin-left: auto;
+  align-self: center;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 images per row
+  gap: 12px;
+  align-self: center; 
 }
 
 .image-preview img {
@@ -65,6 +75,7 @@ button[type="submit"] {
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+
 }
 
 .custom-upload {
@@ -94,6 +105,18 @@ button[type="submit"] {
 .custom-upload .mat-input:focus {
   border-color: #3f51b5; // Angular Material Indigo
   outline: none;
+}
+
+.hint-text {
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+}
+
+.required-star {
+  color: red;
+  font-weight: bold;
+  margin-left: 2px;
 }
 
 

@@ -15,7 +15,15 @@
     <a routerLink="/" mat-button>Home</a>
     <a mat-button>About</a>
     <a mat-button>Contact</a>
-    <a routerLink="login" mat-button>Login</a>
-  </div>
 
+  <!-- Show Logout on navbar if authenticated -->
+  <ng-container *ngIf="authService.currentUser$ | async as user; else loginLink">
+     <button mat-button (click)="logout()">Logout</button>
+  </ng-container> 
+  <!-- Show Login on navbar if not authenticated -->
+  <ng-template #loginLink>
+     <a routerLink="/login" mat-button>Login</a>
+  </ng-template>
+
+ </div>
 </div>

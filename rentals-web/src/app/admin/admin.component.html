@@ -32,11 +32,15 @@
     </mat-form-field>
 
    <div class="custom-upload w-full">
-  <label class="upload-label">Upload Property Images</label>
+    <label class="upload-label">
+       Upload Property Images <span class="required-star">*</span>
+    </label>
+
   
-  <button mat-raised-button color="accent" (click)="fileInput.click()">
-    Choose Files
-  </button>
+    <button  type="button" mat-raised-button color="accent" (click)="fileInput.click()">
+       Choose Files
+    </button>
+    <p class="hint-text">(Only images allowed, max size: 5MB each)</p>
   <input
     type="file"
     #fileInput
@@ -50,10 +54,13 @@
    <!--image preview -->
    <div class="preview-container" *ngIf="imagePreviews.length > 0">
      <label class="preview-label">Preview:</label>
-     <div class="image-preview" *ngFor="let img of imagePreviews">
-       <img [src]="img" alt="Property Image" />
+      <div class="image-grid">
+       <div class="image-preview" *ngFor="let img of imagePreviews">
+         <img [src]="img" alt="Property Image" />
+       </div>
      </div>
    </div>
+
 
     <mat-form-field appearance="fill" class="w-full">
       <mat-label>Contact Person</mat-label>
